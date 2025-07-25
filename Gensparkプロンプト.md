@@ -1,0 +1,185 @@
+Alphabetの株主向けに出す決算説明会の資料としてそのまま出せるクオリティを担保した、図やグラフなどを多用した、視覚的に分かりやすいスライドを作成してください。  
+最新の決算説明資料をAlphabetのwebサイトから取ってきて、その内容を基に作成してください。 
+スライドのデザインを作る時は、最高のデザイナーであるジョニーアイブならスライドの質を極限まで高める時にどういうスライドの構成にするか、どういう内容にするか、どういう図やグラフを入れるかを考えてからスライドの作成に移ってください。
+また、最高のデザイナーを活かすために、スティーブウォズニアックならジョニーアイブの要望をどういう風にコーディングで実現するかを考えてから、インタラクティブなスライドの作成に移ってください。 
+
+以下が、スライドを作成する時のモデルコードです。
+
+<!DOCTYPE html> 
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>成功企業の戦略的アプローチ</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            position: relative;
+            background-color: white;
+            color: #333;
+        }
+        .slide-header {
+            background-color: #1E3A8A;
+            color: white;
+            padding: 15px 30px;
+            font-weight: 700;
+            font-size: 2rem;
+            border-bottom: 5px solid #F59E0B;
+        }
+        .big-stat {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #1E3A8A;
+            line-height: 1.1;
+        }
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #666;
+        }
+        .highlight {
+            color: #F59E0B;
+            font-weight: 700;
+        }
+        .footer {
+            position: absolute;
+            bottom: 15px;
+            right: 30px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .stat-card {
+            border-left: 4px solid #F59E0B;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        .pyramid-layer {
+            position: relative;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pyramid-top {
+            width: 200px;
+            height: 120px;
+            background-color: #1E3A8A;
+            margin: 0 auto;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            transform: rotateX(180deg);
+        }
+        .pyramid-middle {
+            width: 300px;
+            height: 100px;
+            background-color: #3B82F6;
+            margin: -2px auto;
+        }
+        .pyramid-bottom {
+            width: 400px;
+            height: 150px;
+            background-color: #60A5FA;
+            margin: 0 auto;
+        }
+        .strategy-point {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        .strategy-point:before {
+            content: "\f0eb";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #F59E0B;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="slide-header w-full">
+        成功企業の戦略的アプローチ
+    </div>
+<div class="flex h-full">
+<!-- 左側：メッセージと戦略 -->
+<div class="w-1/2 p-10 flex flex-col justify-center">
+<h2 class="text-2xl font-bold mb-6">AIポートフォリオ戦略が競争優位を生む</h2>
+<div class="stat-card">
+<div class="big-stat">3層</div>
+<div class="stat-label">戦略的AI投資ポートフォリオの最適構造</div>
+</div>
+<p class="mt-4 mb-6 text-gray-700">
+<span class="highlight">バランスの取れた</span>戦略的投資アプローチが、AI導入の成功を左右します。小さな勝利の積み重ねと、革新的な挑戦を同時に進めることが重要です。
+            </p>
+<div class="strategy-point text-gray-800">
+                段階的投資で各フェーズが次のステップの資金源となる好循環を構築
+            </div>
+<div class="strategy-point text-gray-800">
+                専門チームによる集中的リソース投入で既存ビジネス拡大を実現
+            </div>
+<div class="strategy-point text-gray-800">
+                経営陣主導で革新的なビジネスモデル創出に挑戦
+            </div>
+</div>
+<!-- 右側：ピラミッド図 -->
+<div class="w-1/2 p-6 flex flex-col justify-center items-center">
+<div class="relative w-full h-96">
+<!-- ムーンショット層 -->
+<div class="pyramid-top flex items-center justify-center mb-4">
+<div class="transform rotate-180 py-6">
+<div class="text-lg font-bold">ムーンショット</div>
+<div class="text-xs mt-1">革新的ビジネスモデル</div>
+</div>
+</div>
+<!-- ルーフショット層 -->
+<div class="pyramid-middle flex items-center justify-center mb-4">
+<div>
+<div class="text-lg font-bold">ルーフショット</div>
+<div class="text-xs mt-1">新しい働き方・顧客体験</div>
+</div>
+</div>
+<!-- グラウンドゲーム層 -->
+<div class="pyramid-bottom flex items-center justify-center">
+<div>
+<div class="text-lg font-bold">グラウンドゲーム</div>
+<div class="text-xs mt-1">小さな勝利の積み重ね</div>
+</div>
+</div>
+<!-- 説明テキスト -->
+<div class="absolute top-10 right-0 w-32 text-sm text-gray-700">
+<i class="fas fa-lightbulb text-yellow-500 mr-1"></i> 高リスク・高リターン<br/>
+                    経営層主導
+                </div>
+<div class="absolute top-1/3 right-0 w-32 text-sm text-gray-700">
+<i class="fas fa-cogs text-blue-500 mr-1"></i> 中リスク<br/>
+                    専門チーム主導
+                </div>
+<div class="absolute bottom-20 right-0 w-32 text-sm text-gray-700">
+<i class="fas fa-check-circle text-green-500 mr-1"></i> 低リスク・確実なROI<br/>
+                    全社的展開
+                </div>
+</div>
+</div>
+</div>
+<div class="footer">
+        出典: PwC AI Predictions (2025), McKinsey Research (2025) / アクセス日: 2025-07-24
+    </div>
+</div>
+</body>
+</html>
+
+このような書き方でグラフィカルなスライドを作成してください。 
+最終的にはpptxまたはpdfで保存できるようにしてください。 
